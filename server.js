@@ -4,12 +4,12 @@ const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 
 dotenv.config({path:"./config.env"})
-console.log(process.env.PORT)
+//console.log(process.env.PORT)
 const DB = process.env.DATABASE.replace(
     '<password>',process.env.DATABASE_PASSWORD
-)
-console.log(DB)
-// 連接資料庫  
+) 
+// console.log(DB)
+// 連接資料庫 
 mongoose.connect(DB)
     .then(()=>{
         console.log('資料庫連線成功')
@@ -38,7 +38,7 @@ const requestListener = async (req,res)=>{
             "status":"success",
             rooms
         }))
-        res.end()
+        res.end() 
     }else if(req.url=="/rooms" && req.method=="POST"){
         req.on('end',async()=>{
             try{
